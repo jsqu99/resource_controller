@@ -1,4 +1,4 @@
-class UsersController < ResourceController::Base
+class UsersController < LegacyResourceController::Base
   object_name :dude
   route_name :dude
   private    

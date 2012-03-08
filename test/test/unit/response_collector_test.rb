@@ -3,7 +3,7 @@ require File.dirname(__FILE__)+'/../test_helper'
 class ResponseCollectorTest < ActiveSupport::TestCase
   context "yielding a block to a collector object" do
     setup do
-      @collector = ResourceController::ResponseCollector.new
+      @collector = LegacyResourceController::ResponseCollector.new
       block = lambda do |wants|
         wants.html {}
         wants.js {}
@@ -31,7 +31,7 @@ class ResponseCollectorTest < ActiveSupport::TestCase
   
   context "duplicating a response collector" do
     setup do
-      @collector = ResourceController::ResponseCollector.new
+      @collector = LegacyResourceController::ResponseCollector.new
       @collector.js
       @duplicate = @collector.dup
       @collector.css

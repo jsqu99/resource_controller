@@ -3,14 +3,14 @@ require File.dirname(__FILE__)+'/../test_helper'
 class AccessorsTest < ActiveSupport::TestCase
   def setup
     PostsController.class_eval do
-      extend ResourceController::Accessors
+      extend LegacyResourceController::Accessors
     end
   end
   
   context "scoping reader" do
     setup do
       PostsController.class_eval do
-        class_scoping_reader :create, ResourceController::ActionOptions.new
+        class_scoping_reader :create, LegacyResourceController::ActionOptions.new
       end
     end
   

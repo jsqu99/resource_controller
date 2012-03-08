@@ -1,4 +1,4 @@
-class OptionsController < ResourceController::Base
+class OptionsController < LegacyResourceController::Base
   belongs_to :account
   
   protected

@@ -1,6 +1,6 @@
 require File.dirname(__FILE__)+'/../../test_helper'
 
-class ResourceController::Helpers::InternalTest < Test::Unit::TestCase
+class LegacyResourceController::Helpers::InternalTest < Test::Unit::TestCase
   def setup
     @controller = PostsController.new
 
@@ -16,7 +16,7 @@ class ResourceController::Helpers::InternalTest < Test::Unit::TestCase
   
   context "response_for" do
     setup do
-      @options = ResourceController::ActionOptions.new
+      @options = LegacyResourceController::ActionOptions.new
       @options.response {|wants| wants.html}
       @controller.expects(:respond_to).yields(mock(:html => ""))
       @controller.stubs(:options_for).with(:create).returns( @options )
@@ -29,10 +29,10 @@ class ResourceController::Helpers::InternalTest < Test::Unit::TestCase
   
   context "after" do
     setup do
-      @options = ResourceController::FailableActionOptions.new
+      @options = LegacyResourceController::FailableActionOptions.new
       @options.success.after { }
       @controller.stubs(:options_for).with(:create).returns( @options )
-      @nil_options = ResourceController::FailableActionOptions.new      
+      @nil_options = LegacyResourceController::FailableActionOptions.new      
       @controller.stubs(:options_for).with(:non_existent).returns(@nil_options)
     end
 
@@ -49,7 +49,7 @@ class ResourceController::Helpers::InternalTest < Test::Unit::TestCase
   
   context "before" do
     setup do
-      PostsController.stubs(:non_existent).returns ResourceController::ActionOptions.new
+      PostsController.stubs(:non_existent).returns LegacyResourceController::ActionOptions.new
     end
     
     should "not choke if there is no block" do
@@ -61,7 +61,7 @@ class ResourceController::Helpers::InternalTest < Test::Unit::TestCase
   
   context "get options for action" do
     setup do
-      @create = ResourceController::FailableActionOptions.new
+      @create = LegacyResourceController::FailableActionOptions.new
       PostsController.stubs(:create).returns @create
     end
 
@@ -74,13 +74,13 @@ class ResourceController::Helpers::InternalTest < Test::Unit::TestCase
     end
     
     should "get correct object for non-failable action" do
-      @index = ResourceController::ActionOptions.new
+      @index = LegacyResourceController::ActionOptions.new
       PostsController.stubs(:index).returns @index
       assert_equal @index, @controller.send(:options_for, :index)
     end
     
     should "understand new_action to mean new" do
-      @new_action = ResourceController::ActionOptions.new
+      @new_action = LegacyResourceController::ActionOptions.new
       PostsController.stubs(:new_action).returns @new_action
       assert_equal @new_action, @controller.send(:options_for, :new_action)
     end
@@ -89,7 +89,7 @@ class ResourceController::Helpers::InternalTest < Test::Unit::TestCase
   context "flash now helper" do
     setup do
       klass = Class.new do
-        include ResourceController::Helpers::Internal
+        include LegacyResourceController::Helpers::Internal
       end
       
       @c = klass.new

@@ -1,4 +1,4 @@
-class Cms::PhotosController < ResourceController::Base
+class Cms::PhotosController < LegacyResourceController::Base
   actions :all, :except => :update
   
   belongs_to :personnel

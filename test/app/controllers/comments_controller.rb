@@ -1,3 +1,3 @@
-class CommentsController < ResourceController::Base
+class CommentsController < LegacyResourceController::Base
   belongs_to :post
 end

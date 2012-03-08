@@ -1,4 +1,4 @@
-class AccountsController < ResourceController::Singleton
+class AccountsController < LegacyResourceController::Singleton
   protected
     def object
       Account.find(:first)

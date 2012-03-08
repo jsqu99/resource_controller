@@ -2,7 +2,7 @@ require 'test_helper'
 require 'urligence'
 
 class PhotosController
-  include ResourceController::Urligence
+  include LegacyResourceController::Urligence
 end
 
  class UrligenceTest < ActiveSupport::TestCase

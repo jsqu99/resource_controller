@@ -15,7 +15,7 @@ class HelpersTest < ActiveSupport::TestCase
     Post.stubs(:find).with(:all).returns(@collection)
   end
   
-  ResourceController::NAME_ACCESSORS.each do |accessor|
+  LegacyResourceController::NAME_ACCESSORS.each do |accessor|
     context "#{accessor} accessor" do
       should "default to returning the singular name of the controller" do
         assert_equal "post", @controller.send(accessor)

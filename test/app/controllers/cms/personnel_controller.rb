@@ -1,2 +1,2 @@
-class Cms::PersonnelController < ResourceController::Base
+class Cms::PersonnelController < LegacyResourceController::Base
 end

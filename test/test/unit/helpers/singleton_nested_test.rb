@@ -1,20 +1,20 @@
 require File.dirname(__FILE__)+'/../../test_helper'
 
 class UsersControllerMock
-  include ResourceController::Helpers
-  extend ResourceController::Accessors
+  include LegacyResourceController::Helpers
+  extend LegacyResourceController::Accessors
   class_reader_writer :belongs_to
 end
 
 class ImagesControllerMock
-  include ResourceController::Helpers
-  extend ResourceController::Accessors
-  include ResourceController::Helpers::SingletonCustomizations   
+  include LegacyResourceController::Helpers
+  extend LegacyResourceController::Accessors
+  include LegacyResourceController::Helpers::SingletonCustomizations   
   class_reader_writer :belongs_to
   belongs_to :user 
 end
 
-class ResourceController::Helpers::SingletonNestedTest < Test::Unit::TestCase
+class LegacyResourceController::Helpers::SingletonNestedTest < Test::Unit::TestCase
   def setup
     @controller = UsersControllerMock.new
     @params = stub :[] => "1"

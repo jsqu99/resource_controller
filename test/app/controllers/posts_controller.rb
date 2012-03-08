@@ -1,4 +1,4 @@
-class PostsController < ResourceController::Base
+class PostsController < LegacyResourceController::Base
   actions :all
   
   create.before(:name_post) { @post.body = '...' }

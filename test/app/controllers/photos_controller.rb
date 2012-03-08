@@ -1,4 +1,4 @@
-class PhotosController < ResourceController::Base
+class PhotosController < LegacyResourceController::Base
   actions :all, :except => :update
   actions :all, :except => :update
   

@@ -1,4 +1,4 @@
-class TagsController < ResourceController::Base
+class TagsController < LegacyResourceController::Base
   belongs_to :photo
   
   index.wants.js

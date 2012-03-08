@@ -3,7 +3,7 @@ require File.dirname(__FILE__)+'/../test_helper'
 class ActionOptionsTest < ActiveSupport::TestCase
   def setup
     @controller = PostsController.new
-    @create     = ResourceController::ActionOptions.new
+    @create     = LegacyResourceController::ActionOptions.new
   end
   
   should "have attr accessor for flash" do
@@ -71,7 +71,7 @@ class ActionOptionsTest < ActiveSupport::TestCase
   
   context "duplicating action options" do
     setup do
-      @opts = ResourceController::ActionOptions.new
+      @opts = LegacyResourceController::ActionOptions.new
       @opts.wants.js
       @opts.after     {}
       @opts.before    {}

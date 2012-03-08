@@ -3,12 +3,12 @@ require File.dirname(__FILE__)+'/../test_helper'
 class FailableActionOptionsTest < ActiveSupport::TestCase
   def setup
     @controller = PostsController.new
-    @create = ResourceController::FailableActionOptions.new
+    @create = LegacyResourceController::FailableActionOptions.new
   end
   
   should "have success and fails" do
-    assert ResourceController::ActionOptions, @create.success.class
-    assert ResourceController::ActionOptions, @create.fails.class
+    assert LegacyResourceController::ActionOptions, @create.success.class
+    assert LegacyResourceController::ActionOptions, @create.fails.class
   end
   
   %w(before).each do |accessor|
@@ -50,7 +50,7 @@ class FailableActionOptionsTest < ActiveSupport::TestCase
   
   context "duplication" do
     setup do
-      @opts = ResourceController::FailableActionOptions.new
+      @opts = LegacyResourceController::FailableActionOptions.new
       @opts.wants.js
       @opts.failure.wants.js
       @opts.before {}

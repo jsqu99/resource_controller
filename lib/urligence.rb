@@ -1,4 +1,4 @@
-module ResourceController
+module LegacyResourceController
   module Urligence
     def smart_url(*objects)
       urligence(*objects.push(:url))

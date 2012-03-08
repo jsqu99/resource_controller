@@ -2,5 +2,5 @@
 #   include Urligence
 #   helper_method :smart_url
 #
-#   extend ResourceController::ActionControllerExtension
+#   extend LegacyResourceController::ActionControllerExtension
 # end

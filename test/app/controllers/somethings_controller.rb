@@ -1,3 +1,3 @@
-class SomethingsController < ResourceController::Base
+class SomethingsController < LegacyResourceController::Base
   actions :index, :show
 end

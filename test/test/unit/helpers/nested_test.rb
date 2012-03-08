@@ -1,19 +1,19 @@
 require File.dirname(__FILE__)+'/../../test_helper'
 
 class PostsControllerMock
-  include ResourceController::Helpers
-  extend ResourceController::Accessors
+  include LegacyResourceController::Helpers
+  extend LegacyResourceController::Accessors
   class_reader_writer :belongs_to
 end
 
 class CommentsControllerMock
-  include ResourceController::Helpers
-  extend ResourceController::Accessors
+  include LegacyResourceController::Helpers
+  extend LegacyResourceController::Accessors
   class_reader_writer :belongs_to
   belongs_to :post
 end
 
-class ResourceController::Helpers::NestedTest < Test::Unit::TestCase
+class LegacyResourceController::Helpers::NestedTest < Test::Unit::TestCase
   def setup
     @controller = PostsControllerMock.new
 
